@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Clarkston Customer Density – Site Selection Map</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+html,body,#map{height:100%;margin:0} .panel{position:absolute;z-index:1000;top:12px;left:55px;background:white;
+padding:12px 15px;border-radius:8px;box-shadow:0 1px 8px #777;font:14px Arial;max-width:340px}
+.panel h2{margin:0 0 6px;font-size:17px} .small{font-size:12px;color:#555;line-height:1.35}
+</style></head><body>
+<div class="panel"><h2>Clarkston 5-year customer density — site selection</h2>
+<div>Five-year ZIP data uses one green color scale: darker areas represent a higher percentage of the file, and ZIPs with similar percentages share the same tone.</div>
+<div class="small">Zoom in to see local streets, major roads and freeway interchanges. This map aggregates customer activity by ZIP area rather than showing exact customer addresses.</div></div>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var map=L.map('map').setView([42.74,-83.42],10);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+ maxZoom:19, attribution:'&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+    
+const density = {"48348":{"count":861,"share":0.17770897832817337},"48346":{"count":804,"share":0.16594427244582044},"48329":{"count":364,"share":0.07512899896800826},"48371":{"count":149,"share":0.030753353973168213},"48328":{"count":140,"share":0.02889576883384933},"48072":{"count":3,"share":0.0006191950464396285},"48240":{"count":3,"share":0.0006191950464396285},"48442":{"count":210,"share":0.043343653250773995},"48383":{"count":110,"share":0.022703818369453045},"48438":{"count":31,"share":0.006398348813209494},"48359":{"count":65,"share":0.013415892672858616},"48430":{"count":120,"share":0.02476780185758514},"48446":{"count":19,"share":0.00392156862745098},"48439":{"count":212,"share":0.04375644994840041},"48462":{"count":260,"share":0.053663570691434466},"48320":{"count":11,"share":0.0022703818369453044},"48455":{"count":28,"share":0.005779153766769866},"48357":{"count":14,"share":0.002889576883384933},"48350":{"count":190,"share":0.0392156862745098},"48386":{"count":136,"share":0.028070175438596492},"48377":{"count":2,"share":0.000412796697626419},"48327":{"count":150,"share":0.030959752321981424},"48362":{"count":122,"share":0.02518059855521156},"48503":{"count":30,"share":0.006191950464396285},"48360":{"count":79,"share":0.01630546955624355},"48356":{"count":41,"share":0.00846233230134159},"48341":{"count":12,"share":0.002476780185758514},"48085":{"count":4,"share":0.000825593395252838},"48423":{"count":32,"share":0.006604747162022704},"48324":{"count":28,"share":0.005779153766769866},"48361":{"count":1,"share":0.0002063983488132095},"48236":{"count":6,"share":0.001238390092879257},"48326":{"count":65,"share":0.013415892672858616},"48708":{"count":3,"share":0.0006191950464396285},"48624":{"count":3,"share":0.0006191950464396285},"48626":{"count":1,"share":0.0002063983488132095},"48507":{"count":9,"share":0.0018575851393188853},"48532":{"count":9,"share":0.0018575851393188853},"48642":{"count":2,"share":0.000412796697626419},"48451":{"count":21,"share":0.0043343653250774},"48342":{"count":13,"share":0.0026831785345717233},"48602":{"count":2,"share":0.000412796697626419},"60610":{"count":2,"share":0.000412796697626419},"48309":{"count":25,"share":0.005159958720330237},"49428":{"count":1,"share":0.0002063983488132095},"48461":{"count":1,"share":0.0002063983488132095},"49236":{"count":1,"share":0.0002063983488132095},"48473":{"count":12,"share":0.002476780185758514},"48340":{"count":33,"share":0.006811145510835914},"48723":{"count":4,"share":0.000825593395252838},"48334":{"count":4,"share":0.000825593395252838},"48306":{"count":41,"share":0.00846233230134159},"48429":{"count":3,"share":0.0006191950464396285},"48091":{"count":11,"share":0.0022703818369453044},"48603":{"count":7,"share":0.0014447884416924665},"48433":{"count":18,"share":0.0037151702786377707},"48307":{"count":11,"share":0.0022703818369453044},"49648":{"count":1,"share":0.0002063983488132095},"48746":{"count":2,"share":0.000412796697626419},"48506":{"count":8,"share":0.001651186790505676},"48734":{"count":5,"share":0.0010319917440660474},"48237":{"count":11,"share":0.0022703818369453044},"48843":{"count":2,"share":0.000412796697626419},"48370":{"count":7,"share":0.0014447884416924665},"48036":{"count":4,"share":0.000825593395252838},"48640":{"count":5,"share":0.0010319917440660474},"48098":{"count":6,"share":0.001238390092879257},"48349":{"count":1,"share":0.0002063983488132095},"74834":{"count":1,"share":0.0002063983488132095},"49740":{"count":4,"share":0.000825593395252838},"48073":{"count":4,"share":0.000825593395252838},"48509":{"count":4,"share":0.000825593395252838},"48381":{"count":5,"share":0.0010319917440660474},"48301":{"count":3,"share":0.0006191950464396285},"48322":{"count":6,"share":0.001238390092879257},"48009":{"count":9,"share":0.0018575851393188853},"48239":{"count":2,"share":0.000412796697626419},"48188":{"count":2,"share":0.000412796697626419},"48638":{"count":7,"share":0.0014447884416924665},"48434":{"count":1,"share":0.0002063983488132095},"48366":{"count":1,"share":0.0002063983488132095},"49709":{"count":1,"share":0.0002063983488132095},"49285":{"count":1,"share":0.0002063983488132095},"48382":{"count":13,"share":0.0026831785345717233},"49855":{"count":1,"share":0.0002063983488132095},"48363":{"count":9,"share":0.0018575851393188853},"48420":{"count":3,"share":0.0006191950464396285},"48323":{"count":3,"share":0.0006191950464396285},"48367":{"count":3,"share":0.0006191950464396285},"48084":{"count":3,"share":0.0006191950464396285},"48449":{"count":1,"share":0.0002063983488132095},"48519":{"count":2,"share":0.000412796697626419},"48076":{"count":1,"share":0.0002063983488132095},"48895":{"count":1,"share":0.0002063983488132095},"48038":{"count":5,"share":0.0010319917440660474},"48304":{"count":10,"share":0.0020639834881320948},"48219":{"count":1,"share":0.0002063983488132095},"48505":{"count":2,"share":0.000412796697626419},"48069":{"count":1,"share":0.0002063983488132095},"49682":{"count":2,"share":0.000412796697626419},"48504":{"count":1,"share":0.0002063983488132095},"48706":{"count":8,"share":0.001651186790505676},"48374":{"count":2,"share":0.000412796697626419},"48458":{"count":2,"share":0.000412796697626419},"48347":{"count":4,"share":0.000825593395252838},"48180":{"count":1,"share":0.0002063983488132095},"48103":{"count":1,"share":0.0002063983488132095},"47941":{"count":1,"share":0.0002063983488132095},"48414":{"count":2,"share":0.000412796697626419},"48743":{"count":1,"share":0.0002063983488132095},"49643":{"count":2,"share":0.000412796697626419},"48025":{"count":1,"share":0.0002063983488132095},"49240":{"count":1,"share":0.0002063983488132095},"48071":{"count":1,"share":0.0002063983488132095},"48089":{"count":1,"share":0.0002063983488132095},"48159":{"count":1,"share":0.0002063983488132095},"48457":{"count":2,"share":0.000412796697626419},"48315":{"count":2,"share":0.000412796697626419},"48601":{"count":1,"share":0.0002063983488132095},"48759":{"count":1,"share":0.0002063983488132095},"48330":{"count":4,"share":0.000825593395252838},"48353":{"count":4,"share":0.000825593395252838},"48335":{"count":1,"share":0.0002063983488132095},"98245":{"count":1,"share":0.0002063983488132095},"48116":{"count":3,"share":0.0006191950464396285},"48390":{"count":2,"share":0.000412796697626419},"48529":{"count":3,"share":0.0006191950464396285},"49228":{"count":1,"share":0.0002063983488132095},"48467":{"count":1,"share":0.0002063983488132095},"49684":{"count":2,"share":0.000412796697626419},"48316":{"count":3,"share":0.0006191950464396285},"48302":{"count":6,"share":0.001238390092879257},"77407":{"count":1,"share":0.0002063983488132095},"48082":{"count":1,"share":0.0002063983488132095},"48114":{"count":10,"share":0.0020639834881320948},"48656":{"count":2,"share":0.000412796697626419},"48017":{"count":1,"share":0.0002063983488132095},"49341":{"count":1,"share":0.0002063983488132095},"48310":{"count":3,"share":0.0006191950464396285},"48027":{"count":2,"share":0.000412796697626419},"48418":{"count":1,"share":0.0002063983488132095},"48748":{"count":1,"share":0.0002063983488132095},"48042":{"count":2,"share":0.000412796697626419},"48483":{"count":1,"share":0.0002063983488132095},"48220":{"count":1,"share":0.0002063983488132095},"48380":{"count":2,"share":0.000412796697626419},"48094":{"count":3,"share":0.0006191950464396285},"48412":{"count":1,"share":0.0002063983488132095},"48428":{"count":2,"share":0.000412796697626419},"49770":{"count":1,"share":0.0002063983488132095},"48823":{"count":1,"share":0.0002063983488132095},"48226":{"count":1,"share":0.0002063983488132095},"26415":{"count":1,"share":0.0002063983488132095},"48124":{"count":3,"share":0.0006191950464396285},"48183":{"count":1,"share":0.0002063983488132095},"48625":{"count":1,"share":0.0002063983488132095},"49747":{"count":1,"share":0.0002063983488132095},"48101":{"count":1,"share":0.0002063983488132095},"48653":{"count":1,"share":0.0002063983488132095},"48722":{"count":1,"share":0.0002063983488132095},"48083":{"count":1,"share":0.0002063983488132095},"48415":{"count":2,"share":0.000412796697626419},"48472":{"count":1,"share":0.0002063983488132095},"48127":{"count":4,"share":0.000825593395252838},"49712":{"count":1,"share":0.0002063983488132095},"48463":{"count":1,"share":0.0002063983488132095},"48176":{"count":3,"share":0.0006191950464396285},"48768":{"count":2,"share":0.000412796697626419},"48314":{"count":1,"share":0.0002063983488132095},"48464":{"count":2,"share":0.000412796697626419},"48867":{"count":2,"share":0.000412796697626419},"48238":{"count":1,"share":0.0002063983488132095},"49777":{"count":1,"share":0.0002063983488132095},"48623":{"count":2,"share":0.000412796697626419},"48230":{"count":1,"share":0.0002063983488132095},"48150":{"count":1,"share":0.0002063983488132095},"48164":{"count":1,"share":0.0002063983488132095}};
+const tones = ['#edf7ed','#d2ebd2','#a8d5a8','#79bd79','#4a9e4a','#287a28','#125512'];
+// Group similar percentages into the same tone; higher share = darker.
+function colorForShare(share) {
+  const pct = share * 100;
+  if (pct < 0.5) return tones[0];
+  if (pct < 1.0) return tones[1];
+  if (pct < 2.0) return tones[2];
+  if (pct < 3.0) return tones[3];
+  if (pct < 4.0) return tones[4];
+  if (pct < 5.0) return tones[5];
+  return tones[6];
+}
+function zipProp(props) {
+  return String(props.ZCTA5CE10 || props.ZCTA5CE20 || props.GEOID10 || props.GEOID20 ||
+                props.GEOID || props.zip || props.ZIP || props.ZCTA || '').padStart(5,'0');
+}
+const boundaryUrl='./mi_michigan_zip_codes_geo.min.json';
+fetch(boundaryUrl).then(r=>r.json()).then(gj=>{
+  const wanted = {
+    type:'FeatureCollection',
+    features: gj.features.filter(f => density[zipProp(f.properties)])
+  };
+  const layer=L.geoJSON(wanted,{
+    style:f=>({
+      color:'#333', weight:2, opacity:0.9,
+      fillColor:colorForShare(density[zipProp(f.properties)].share), fillOpacity:0.48
+    }),
+    onEachFeature:(f,l)=>{
+      const z=zipProp(f.properties), d=density[z];
+      if(!d) return;
+      const label=`<b>ZIP ${z}</b><br>${d.count.toLocaleString()} records<br>${(d.share*100).toFixed(1)}% of file`;
+      l.bindTooltip(label,{sticky:true});
+      l.bindPopup(label);
+      l.on('mouseover',()=>l.setStyle({weight:4,fillOpacity:0.48}));
+      l.on('mouseout',()=>layer.resetStyle(l));
+    }
+  }).addTo(map);
+  if(layer.getBounds().isValid()) map.fitBounds(layer.getBounds(),{padding:[18,18]});
+
+const legend=L.control({position:'bottomright'});
+legend.onAdd=function(){
+  const div=L.DomUtil.create('div','zip-legend');
+  div.style.cssText='background:white;padding:9px 11px;border-radius:6px;box-shadow:0 1px 6px #777;font:12px Arial;line-height:18px';
+  const labels=['<0.5%','0.5–0.9%','1.0–1.9%','2.0–2.9%','3.0–3.9%','4.0–4.9%','5.0%+'];
+  div.innerHTML='<b>% of file</b><br>'+tones.map((c,i)=>`<span style="display:inline-block;width:14px;height:14px;background:${c};border:1px solid #777;margin-right:6px;vertical-align:middle"></span>${labels[i]}<br>`).join('');
+  return div;
+};
+legend.addTo(map);
+
+}).catch(err=>{
+  console.error(err);
+  document.querySelector('.small').insertAdjacentHTML('beforeend','<br><b>ZIP boundaries could not load. Confirm that mi_michigan_zip_codes_geo.min.json is uploaded in the same GitHub repository as index.html.</b>');
+});
+
+L.control.scale({imperial:true,metric:false}).addTo(map);
+</script></body></html>
